@@ -6168,10 +6168,11 @@
     "lid": "139002422267993@lid"
   },
   "6283182665936@s.whatsapp.net": {
+    "id": "165536713416760@lid",
+    "lid": "165536713416760@lid",
     "isContact": true,
-    "id": "6283182665936@s.whatsapp.net",
     "name": "ルトピ",
-    "lid": "165536713416760@lid"
+    "notify": "Lui"
   },
   "6285950007640@s.whatsapp.net": {
     "isContact": true,
@@ -7560,10 +7561,11 @@
     "lid": "276278200545407@lid"
   },
   "6281374976765@s.whatsapp.net": {
+    "id": "195713338183899@lid",
+    "lid": "195713338183899@lid",
     "isContact": true,
-    "id": "6281374976765@s.whatsapp.net",
     "name": "√tita💅",
-    "lid": "195713338183899@lid"
+    "notify": "."
   },
   "6283846191409@s.whatsapp.net": {
     "isContact": true,
@@ -8424,10 +8426,12 @@
     "lid": "193321007857797@lid"
   },
   "6282393354095@s.whatsapp.net": {
+    "id": "263483945930926@lid",
+    "lid": "263483945930926@lid",
     "isContact": true,
-    "id": "6282393354095@s.whatsapp.net",
     "name": "Feli",
-    "lid": "263483945930926@lid"
+    "notify": "j",
+    "verifiedName": "j"
   },
   "6281227784752@s.whatsapp.net": {
     "isContact": true,
@@ -13587,10 +13591,11 @@
     "lid": "177244760744070@lid"
   },
   "6282258833301@s.whatsapp.net": {
+    "id": "244452643868853@lid",
+    "lid": "244452643868853@lid",
     "isContact": true,
-    "id": "6282258833301@s.whatsapp.net",
     "name": "!!!Nova",
-    "lid": "244452643868853@lid"
+    "notify": "let me cooked"
   },
   "628818614760@s.whatsapp.net": {
     "isContact": true,
@@ -21020,7 +21025,9 @@
     "lid": "97968623505429@lid",
     "isContact": true,
     "name": "Agan Rizkia 2",
-    "notify": "Hen V2"
+    "notify": "Hen V2",
+    "ephemeralSettingTimestamp": 1746361000,
+    "ephemeralDuration": 86400
   },
   "6282153927853@s.whatsapp.net": {
     "isContact": true,
@@ -26879,5 +26886,30 @@
     "id": "6287854547551@s.whatsapp.net",
     "name": "𝖘𝖔𝖒𝖊𝖔𝖓𝖊",
     "lid": "235321274945676@lid"
+  },
+  "274921661972673@lid": {
+    "id": "274921661972673@lid",
+    "lid": "274921661972673@lid",
+    "notify": "Ayra"
+  },
+  "130584756154475@lid": {
+    "id": "130584756154475@lid",
+    "lid": "130584756154475@lid",
+    "imgUrl": "removed"
+  },
+  "41309716902084@lid": {
+    "id": "41309716902084@lid",
+    "lid": "41309716902084@lid",
+    "imgUrl": "changed"
+  },
+  "30438550667432@lid": {
+    "id": "30438550667432@lid",
+    "lid": "30438550667432@lid",
+    "imgUrl": "removed"
+  },
+  "64201674485956@lid": {
+    "id": "64201674485956@lid",
+    "lid": "64201674485956@lid",
+    "imgUrl": "removed"
   }
 }

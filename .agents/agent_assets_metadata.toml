@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "HnDqY-Nl1bPzf5sf8vIiy"
+uri = "file://jadibot.zip"
+type = "unspecified"
+title = "jadibot.zip — Backup Bot"
