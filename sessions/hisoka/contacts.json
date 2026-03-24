@@ -8692,13 +8692,14 @@
     "lid": "261748275867691@lid"
   },
   "6289688206739@s.whatsapp.net": {
-    "id": "81582920577063@lid",
+    "id": "6289688206739@s.whatsapp.net",
     "lid": "81582920577063@lid",
     "isContact": true,
     "name": "Agan Rizkia",
     "ephemeralSettingTimestamp": 1746361000,
     "ephemeralDuration": 86400,
-    "notify": "Wily"
+    "notify": "Wily",
+    "verifiedName": "Wily"
   },
   "6281222051074@s.whatsapp.net": {
     "isContact": true,
