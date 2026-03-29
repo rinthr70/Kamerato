@@ -2148,10 +2148,10 @@ text += `│ .online on - Terlihat Online\n`;
 text += `│ .online off - Terlihat Offline\n`;
 text += `│ .online set <detik> - Set interval\n`;
 text += `│\n`;
-text += `│ *Info:* Mode OFFLINE akan terus\n`;
-text += `│ mengirim status offline setiap\n`;
-text += `│ ${autoOnline.intervalSeconds || 30} detik agar tetap tersembunyi\n`;
-text += `│ walaupun Anda buka WA di HP\n`;
+text += `│ *Info:* Mode OFFLINE mengirim\n`;
+text += `│ unavailable setiap ${autoOnline.intervalSeconds || 30}s agar\n`;
+text += `│ tetap tersembunyi walaupun WA\n`;
+text += `│ dibuka di HP\n`;
 text += `│\n`;
 text += `╰═════════════════╯`;
                                                 await m.reply(text);
@@ -2177,15 +2177,19 @@ text += `╰═════════════════╯`;
                                                 } else {
                                                         config.autoOnline = { ...autoOnline, enabled: false };
                                                         saveConfig(config);
-                                                        if (global.autoOnlineInterval) {
-                                                                clearInterval(global.autoOnlineInterval);
-                                                                global.autoOnlineInterval = null;
+                                                        if (global.startAutoOnline) {
+                                                                global.startAutoOnline();
+                                                        } else {
+                                                                if (global.autoOnlineInterval) {
+                                                                        clearInterval(global.autoOnlineInterval);
+                                                                        global.autoOnlineInterval = null;
+                                                                }
+                                                                if (global.hisokaClient) {
+                                                                        global.hisokaClient.sendPresenceUpdate('unavailable');
+                                                                }
                                                         }
-                                                        if (global.hisokaClient) {
-                                                                global.hisokaClient.sendPresenceUpdate('unavailable');
-                                                        }
-                                                        console.log(`\x1b[33m[AutoOnline]\x1b[39m Stopped`);
-                                                        await m.reply('❌ Auto Online dinonaktifkan - Anda terlihat offline');
+                                                        console.log(`\x1b[33m[AutoOnline]\x1b[39m Switched to OFFLINE mode`);
+                                                        await m.reply('🙈 Auto Online dinonaktifkan - Mode stealth aktif, status terus tersembunyi');
                                                 }
                                         } else if (args[0] === 'set' && args[1]) {
                                                 const seconds = parseInt(args[1]);
