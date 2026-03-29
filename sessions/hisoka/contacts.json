@@ -3458,10 +3458,11 @@
     "lid": "154271165206534@lid"
   },
   "6285216433695@s.whatsapp.net": {
+    "id": "225670600900759@lid",
+    "lid": "225670600900759@lid",
     "isContact": true,
-    "id": "6285216433695@s.whatsapp.net",
     "name": "ラフィ",
-    "lid": "225670600900759@lid"
+    "notify": "知らないし、気にしない。"
   },
   "6282278842094@s.whatsapp.net": {
     "isContact": true,
@@ -16655,10 +16656,11 @@
     "lid": "46115248406563@lid"
   },
   "6281393564657@s.whatsapp.net": {
+    "id": "174577888038922@lid",
+    "lid": "174577888038922@lid",
     "isContact": true,
-    "id": "6281393564657@s.whatsapp.net",
     "name": "Yus ( Donasi Jadi Bot )",
-    "lid": "174577888038922@lid"
+    "notify": "γυς ρου"
   },
   "6285870208152@s.whatsapp.net": {
     "isContact": true,
@@ -26899,5 +26901,25 @@
     "id": "264965290213535@lid",
     "lid": "264965290213535@lid",
     "imgUrl": "changed"
+  },
+  "2138910498843@lid": {
+    "id": "2138910498843@lid",
+    "lid": "2138910498843@lid",
+    "imgUrl": "changed"
+  },
+  "200790056644755@lid": {
+    "id": "200790056644755@lid",
+    "lid": "200790056644755@lid",
+    "imgUrl": "changed"
+  },
+  "123179813052582@lid": {
+    "id": "123179813052582@lid",
+    "lid": "123179813052582@lid",
+    "imgUrl": "changed"
+  },
+  "235591874646077@lid": {
+    "id": "235591874646077@lid",
+    "lid": "235591874646077@lid",
+    "imgUrl": "removed"
   }
 }
