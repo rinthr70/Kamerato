@@ -19293,10 +19293,11 @@
     "lid": "197233957953571@lid"
   },
   "62882020696316@s.whatsapp.net": {
+    "id": "9204131708977@lid",
+    "lid": "9204131708977@lid",
     "isContact": true,
-    "id": "62882020696316@s.whatsapp.net",
     "name": "Rido",
-    "lid": "9204131708977@lid"
+    "notify": "lido"
   },
   "62895393497373@s.whatsapp.net": {
     "isContact": true,
