@@ -7519,10 +7519,11 @@
     "lid": "3011124404380@lid"
   },
   "6288239774015@s.whatsapp.net": {
+    "id": "217570695209183@lid",
+    "lid": "217570695209183@lid",
     "isContact": true,
-    "id": "6288239774015@s.whatsapp.net",
     "name": "Anjar 68",
-    "lid": "217570695209183@lid"
+    "notify": "SJ"
   },
   "6285764936120@s.whatsapp.net": {
     "isContact": true,

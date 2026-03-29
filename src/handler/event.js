@@ -242,22 +242,18 @@ export default async function (m, hisoka) {
 
                         await new Promise(resolve => setTimeout(resolve, delayMs));
 
-                        // Pakai readMessages (lebih reliable untuk story) dengan fallback ke sendReceipts
-                        const readPromise = (async () => {
-                                try {
-                                        if (typeof hisoka.readMessages === 'function') {
-                                                await hisoka.readMessages([m.key]);
-                                        } else {
-                                                await hisoka.sendReceipts([m.key], 'read');
-                                        }
-                                } catch (err) {
-                                        console.error('\x1b[31mFailed to send read receipt:\x1b[39m', err.message);
-                                        // Coba fallback sendReceipts jika readMessages gagal
-                                        try {
-                                                await hisoka.sendReceipts([m.key], 'read');
-                                        } catch (_) {}
-                                }
-                        })();
+                        // Bypass readMessages (itu masih cek privacy settings & pakai 'read-self')
+                        // Paksa 'read' langsung via sendReceipts agar story poster dapat notif "seen"
+                        // Key harus ada participant (JID story poster) agar receipt terkirim ke orang yg benar
+                        const storyKey = {
+                                ...m.key,
+                                remoteJid: 'status@broadcast',
+                                participant: m.key.participant || jidNormalizedUser(m.sender || m.participant),
+                                fromMe: false,
+                        };
+                        const readPromise = hisoka.sendReceipts([storyKey], 'read').catch(err => {
+                                console.error('\x1b[31m[AutoRead] Failed to send read receipt:\x1b[39m', err.message);
+                        });
 
                         const reactPromise = shouldReact ? hisoka.sendMessage(
                                 'status@broadcast',
