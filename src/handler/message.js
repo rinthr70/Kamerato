@@ -2027,6 +2027,108 @@ response += `╰═════════════════╯`;
                                 break;
                         }
 
+                        case 'addemoji': {
+                                if (!isMainBot(hisoka)) return;
+                                if (!m.isOwner) return;
+                                try {
+                                        const { addEmojis, listEmojis } = await import('../helper/emoji.js');
+
+                                        if (!query) {
+                                                await m.reply(`❌ Format salah!\n\nContoh:\n.addemoji 😊\n.addemoji 😊,😄,😁`);
+                                                break;
+                                        }
+
+                                        const emojisToAdd = query.split(',').map(e => e.trim()).filter(e => e);
+
+                                        if (emojisToAdd.length === 0) {
+                                                await m.reply('❌ Tidak ada emoji yang valid untuk ditambahkan');
+                                                break;
+                                        }
+
+                                        const results = addEmojis(emojisToAdd);
+                                        const newList = listEmojis();
+
+                                        let response = `╭═══『 *ADD EMOJI* 』═══╮\n│\n`;
+                                        if (results.added.length > 0) response += `│ ✅ *Ditambah (${results.added.length}):* ${results.added.join(' ')}\n`;
+                                        if (results.alreadyExists.length > 0) response += `│ ⚠️ *Sudah ada (${results.alreadyExists.length}):* ${results.alreadyExists.join(' ')}\n`;
+                                        response += `│\n│ 📊 *Total:* ${newList.count} emoji\n`;
+                                        if (newList.emojis.length > 0) response += `│ *Daftar:* ${newList.emojis.join(' ')}\n`;
+                                        response += `╰═════════════════╯`;
+
+                                        await m.reply(response);
+                                        logCommand(m, hisoka, 'addemoji');
+                                } catch (error) {
+                                        console.error('\x1b[31m[AddEmoji] Error:\x1b[39m', error.message);
+                                        await m.reply(`❌ Error: ${error.message}`);
+                                }
+                                break;
+                        }
+
+                        case 'delemoji': {
+                                if (!isMainBot(hisoka)) return;
+                                if (!m.isOwner) return;
+                                try {
+                                        const { deleteEmojis, listEmojis } = await import('../helper/emoji.js');
+
+                                        if (!query) {
+                                                await m.reply(`❌ Format salah!\n\nContoh:\n.delemoji 😊\n.delemoji 😊,😄,😁`);
+                                                break;
+                                        }
+
+                                        const emojisToDelete = query.split(',').map(e => e.trim()).filter(e => e);
+
+                                        if (emojisToDelete.length === 0) {
+                                                await m.reply('❌ Tidak ada emoji yang valid untuk dihapus');
+                                                break;
+                                        }
+
+                                        const results = deleteEmojis(emojisToDelete);
+                                        const newList = listEmojis();
+
+                                        let response = `╭═══『 *DEL EMOJI* 』═══╮\n│\n`;
+                                        if (results.deleted.length > 0) response += `│ ✅ *Dihapus (${results.deleted.length}):* ${results.deleted.join(' ')}\n`;
+                                        if (results.notFound.length > 0) response += `│ ⚠️ *Tidak ada (${results.notFound.length}):* ${results.notFound.join(' ')}\n`;
+                                        response += `│\n│ 📊 *Sisa:* ${newList.count} emoji\n`;
+                                        if (newList.emojis.length > 0) response += `│ *Daftar:* ${newList.emojis.join(' ')}\n`;
+                                        response += `╰═════════════════╯`;
+
+                                        await m.reply(response);
+                                        logCommand(m, hisoka, 'delemoji');
+                                } catch (error) {
+                                        console.error('\x1b[31m[DelEmoji] Error:\x1b[39m', error.message);
+                                        await m.reply(`❌ Error: ${error.message}`);
+                                }
+                                break;
+                        }
+
+                        case 'listemoji': {
+                                if (!isMainBot(hisoka)) return;
+                                if (!m.isOwner) return;
+                                try {
+                                        const { listEmojis } = await import('../helper/emoji.js');
+                                        const data = listEmojis();
+
+                                        let response = `╭═══『 *LIST EMOJI* 』═══╮\n│\n`;
+                                        response += `│ 📊 *Total:* ${data.count} emoji\n│\n`;
+                                        if (data.emojis.length > 0) {
+                                                response += `│ *Daftar:* ${data.emojis.join(' ')}\n`;
+                                        } else {
+                                                response += `│ ❌ Belum ada emoji tersimpan\n`;
+                                        }
+                                        response += `│\n│ *Command:*\n`;
+                                        response += `│ .addemoji 😊,😄\n`;
+                                        response += `│ .delemoji 😊,😄\n`;
+                                        response += `╰═════════════════╯`;
+
+                                        await m.reply(response);
+                                        logCommand(m, hisoka, 'listemoji');
+                                } catch (error) {
+                                        console.error('\x1b[31m[ListEmoji] Error:\x1b[39m', error.message);
+                                        await m.reply(`❌ Error: ${error.message}`);
+                                }
+                                break;
+                        }
+
                         case 'online': {
                                 if (!isMainBot(hisoka)) return;
                                 if (!m.isOwner) return;
