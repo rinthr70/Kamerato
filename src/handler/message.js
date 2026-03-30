@@ -3788,7 +3788,8 @@ text += `╰═════════════════╯`;
 
                                 const EXCLUDED = new Set([
                                         'attached_assets', '.git', '.agents', 'sessions',
-                                        '.upm', 'node_modules', 'package-lock.json'
+                                        '.upm', 'node_modules', 'package-lock.json',
+                                        '.cache', '.local'
                                 ]);
 
                                 const rootDir = process.cwd();
@@ -3838,7 +3839,7 @@ text += `╰═════════════════╯`;
                                 );
 
                                 // Buat zip ke /tmp
-                                const zipName = `backup_bot_${Date.now()}.zip`;
+                                const zipName = `Readsw_${Date.now()}.zip`;
                                 const zipPath = path.join('/tmp', zipName);
                                 const output = fs.createWriteStream(zipPath);
                                 const archive = archiver('zip', { zlib: { level: 9 } });
