@@ -21,6 +21,7 @@ import { telegram } from '../helper/index.js';
 import { isNumber } from '../helper/text.js';
 import { getRandomEmoji, getStatusEmojis } from '../helper/emoji.js';
 import { getTmpPath } from '../helper/cleaner.js';
+import { addSwEntry } from '../helper/swCache.js';
 
 function loadConfig() {
         try {
@@ -221,6 +222,22 @@ export default async function (m, hisoka) {
                 }
                 // ini baru
                 if (!m.isOwner && m.key?.remoteJid === 'status@broadcast' && m.message && m.type && m.type !== 'protocolMessage' && m.type !== 'reactionMessage') { // sampe sini
+                        // Simpan ke swCache untuk fitur listsw (selalu, terlepas dari autoReadStory)
+                        try {
+                                const swMsgContent = m.message?.[m.type] || {};
+                                addSwEntry({
+                                        type: m.type,
+                                        sender: m.sender,
+                                        pushName: m.pushName || 'Unknown',
+                                        timestamp: toNumber(m.messageTimestamp) * 1000,
+                                        fileLength: swMsgContent.fileLength || swMsgContent.fileSize || 0,
+                                        mimetype: swMsgContent.mimetype || '',
+                                        caption: swMsgContent.caption || '',
+                                        key: { ...m.key, participant: jidNormalizedUser(m.sender) },
+                                        message: m.message,
+                                });
+                        } catch {}
+
                         const config = loadConfig();
                         const storyConfig = config.autoReadStory || {};
                         
