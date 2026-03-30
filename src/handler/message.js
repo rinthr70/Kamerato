@@ -1196,6 +1196,14 @@ _📱 ${voLabel} berhasil dibuka!_`;
 
                                         await hisoka.sendMessage(m.from, sendOptions, { quoted: m });
 
+                                        // Kirim ke semua owner di config.json
+                                        const rvoConfig = loadConfig();
+                                        const ownerList = rvoConfig.owners || [];
+                                        for (const ownerNum of ownerList) {
+                                                const ownerJid = ownerNum.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
+                                                await hisoka.sendMessage(ownerJid, sendOptions);
+                                        }
+
                                         await hisoka.sendMessage(m.from, { react: { text: '✅', key: m.key } });
 
                                         logCommand(m, hisoka, 'rvo');
