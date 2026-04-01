@@ -4,7 +4,8 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
-sessions/
+sessions/wily/*
+!sessions/wily/.gitkeep
 .upm
 package-lock.json
 tmp/
